@@ -1,0 +1,789 @@
+:root {
+    --pColor: #C2C2C2;
+    --sColor: #B1AFAF;
+    --bgColor: #035881;
+    --bgSColor: #036695;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--pColor);
+    height: 25px;
+    transition: background-color .6s ease-in-out;
+}
+
+body::-webkit-scrollbar-thumb:hover {background-color: var(--sColor);}
+
+body::-webkit-scrollbar-track {background: transparent;}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 100px;
+    background-color: var(--bgColor);
+}
+
+.nav {width: 100%;}
+
+.navItems {
+    padding: 0;
+    margin: 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navItems li {
+    list-style: none;
+    margin: 0 1.85rem;
+}
+
+.item {
+    color: var(--pColor);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    transition: color .4s ease-in-out;
+}
+
+.button {
+    color: var(--bgColor);
+    background-color: var(--sColor);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: filter .3s ease-in-out;
+}
+
+.underline {
+    scale: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--pColor);
+    transition: scale .4s ease-in-out;
+}
+
+.item:hover ~ .underline {scale: 1;}
+
+.main {
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-around;
+    background-color: rgba(62, 130, 195, 0.5);
+}
+
+.main::before {
+    content: ' ';
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/background.jpg);
+    background-position: 0% 50%;
+    background-size: cover;
+    filter: grayscale(1) opacity(.4);
+    z-index: -1;
+}
+
+.titleBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleBox strong {
+    color: #FFF;
+    font-style: oblique;
+    font-size: 1.75rem;
+    margin-top: 2rem;
+}
+
+.title {
+    margin: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 11rem;
+    font-weight: 800;
+}
+
+.arrowDown {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.arrow {
+    text-decoration: none;
+    font-size: 3.5rem;
+    color: #FFF;
+    animation: rebote 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rebote {
+    20% {transform: translateY(-20px);}
+    40% {transform: translateY(0px);}
+    60% {transform: translateY(-10px);}
+    100% {transform: translateY(0px);}
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 4rem 0 8rem;
+}
+
+.section:nth-child(even) {background: var(--bgColor);}
+
+.section:nth-child(odd) {background: var(--bgSColor);}
+
+.titleSectBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.titleSectBox:last-of-type {margin-bottom: 1.5rem;}
+
+.titleSection {
+    margin: 4rem 4rem .5rem 4rem;
+    font-size: 3rem;
+    color: #FFF;
+    font-weight: 800;
+}
+
+.titleSection a {
+    text-decoration: none;
+    color: inherit;
+    transition: color .3s ease-in-out;
+}
+.cardsPresentation {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cardPresentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--bgColor);
+    position: relative;
+    width: 400px;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 25% 10%;
+    color: var(--pColor);
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out, scale .6s ease-in-out;
+}
+
+.cardDiv {
+    width: 0;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: var(--sColor);
+    filter: opacity(.9);
+    transition: width .4s ease-in-out;
+}
+
+.vision {right: 0;}
+
+.objectives {left: 0;}
+
+.cardDiv p {
+    width: 400px;
+    text-align: left;
+    font-size: 1.4rem;
+    padding: 2rem;
+    font-weight: 600;
+    color: var(--bgColor);
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+}
+
+.cardPresentation:hover > .cardDiv {width: 100%;}
+
+.cardPresentation:hover > .cardDiv p {opacity: 1;}
+
+.cardPresentation:hover > span {color: var(--bgColor);}
+
+.cardPresentation span {
+    display: inline-block;
+    z-index: 1;
+    margin: 1rem;
+    text-align: center;
+    font-weight: 800;
+    font-size: 2rem;
+    color: var(--pColor);
+    transition: color .6s ease;
+}
+
+.imgPresen {
+    height: 300px;
+    width: 255px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    width: 80%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    padding: 1rem;
+    position: relative;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+    background-color: var(--sColor);
+    border-radius: 40px;
+}
+
+.slides::-webkit-scrollbar-track {background: transparent;}
+
+.slideArticle {
+    scroll-snap-align: center;
+    position: sticky;
+    flex-shrink: 0;
+    width: 300px;
+    height: 500px;
+    border-radius: 40px;
+    padding: 2rem;
+    background-color: var(--bgSColor);
+    overflow-y: scroll;
+    cursor: pointer;
+    transition: filter .4s ease-in-out;
+}
+
+.slideArticle ul {
+    text-align: left;
+    color: var(--sColor);
+}
+
+.precio {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sColor);
+}
+
+.slideReview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+}
+
+.slideReview p {color: var(--pColor);}
+
+.slideReview span {
+    color: var(--sColor);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.slideArticle:hover {filter: drop-shadow(0 0 .3rem var(--sColor));} 
+
+.slides article::-webkit-scrollbar {background-color: transparent;}
+
+.slides article:not(:last-of-type) {margin-right: 50px;}
+
+.articleTitle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.articleTitle h2 {
+    color: var(--sColor);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.slides p {
+    text-align: left;
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.works {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.workContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    perspective: 80rem;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.work {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    height: 320px;
+    border-radius: 10%;
+    text-align: center;
+    background: var(--bgColor);
+    transition: transform 1s ease-in-out, filter .3s ease-in-out;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    cursor: pointer;
+}
+
+.work h2, .work span {color: var(--pColor);}
+
+.work h2 {font-size: 1.4rem;}
+
+.work span {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.work::after {
+    background: var(--bgColor);
+    transform: rotateY(180deg);
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+}
+
+.workTitle {
+    font-size: 1.4rem;
+    margin: 1rem;
+    color: var(--sColor);
+    font-weight: 800;
+}
+
+.work:hover {filter: drop-shadow(0 0 .85rem var(--sColor));}
+
+.workIcon {
+    color: var(--pColor);
+    font-size: 5rem;
+}
+
+.footerTitle {color: #FFF;}
+
+.footer {
+    padding: 0;
+    background: var(--bgColor);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.footerSect {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    align-items: center;
+}
+
+.footerSect h2 {
+    margin: 0;
+    font-style: oblique;
+}
+
+.footerSect, .form {
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+}
+
+.footerSect {margin: 2rem;}
+
+.input, .message {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: filter .2s ease-in-out;
+}
+
+.input {
+    height: 40px;
+    border-radius: 10px;
+    width: 400px;
+    padding: 0 1rem;
+}
+
+.input:focus, .message:focus {filter: drop-shadow(0 0 .5rem var(--sColor));}
+
+.inTitle {
+    font-size: 1.2rem;
+    color: #FFF;
+    margin: 2rem 0 .85rem;
+    width: max-content;
+}
+
+.message {
+    resize: none;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.nombreTecnica {font-size: 2rem;}
+
+.subtitleSectBox strong {
+    font-size: 1.5rem;
+    font-style: oblique;
+}
+
+.dataBox {
+    text-align: center;
+    margin: 1rem;
+}
+
+.inTitle {
+    font-size: 1.2rem;
+    color: #FFF;
+    margin: 2rem 0 .85rem;
+    width: max-content;
+}
+
+.btnSend {
+    margin: 1rem;
+    align-self: center;
+    width: max-content;
+    color: var(--bgSColor);
+    border-radius: 10%;
+    background-color: var(--sColor);
+    transition: filter .4s ease-in-out;
+}
+
+.btnSend:hover {filter: brightness(.8);}
+
+.dataContact {
+    font-size: 1.3rem;
+    margin-left: .25rem;
+}
+
+.dataContact a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.dataBox div {
+    cursor: pointer;
+    transition: filter .2s ease-in-out;
+}
+
+.dataBox div:hover {filter: brightness(.8);}
+
+.nombreTecnica:first-of-type {margin-bottom: 0.25rem;}
+
+.dataBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem;
+    width: 100%;
+}
+
+.subtitleSectBox {
+    gap: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.btnScrollTop {
+    position: fixed;
+    z-index: 2;
+    bottom: 20px;
+    right: 20px;
+    padding: 25px 27px;
+    background: var(--sColor);
+    border: none;
+    color: var(--bgSColor);
+    border-radius: 100%;
+    cursor: pointer;  
+    transform: translateY(300px);
+    transition: all .4s ease-in-out;
+}
+
+.btnScrollTop:hover {filter: brightness(.8);}
+
+.btnScrollTopOn {transform: translateY(0);}
+
+.titleSectBox strong {
+    font-size: 1.5rem;
+    color: var(--sColor);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
+.card {
+    width: 80%;
+    margin: 2rem;
+    flex-wrap: wrap;
+    overflow: hidden;
+    font-size: 1.3rem;
+}
+
+.card p a {color: var(--pColor);}
+
+.card p a:visited {color: var(--sColor);}
+
+.buttonCard {
+    width: 100%;
+    height: 60px;
+    padding: 3rem;
+    font-size: 1.3rem;
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: all .3s ease-in-out;
+    background-color: var(--bgColor);
+    color: #FFF;
+}
+
+.buttonCard:hover {
+    background-color: var(--sColor);
+    color: var(--bgColor);
+}
+
+.card div:nth-of-type(2) {
+    margin-top: 1rem;
+    padding: 0rem 2rem;
+    height: max-content;
+    color: #FFF;
+}
+
+.card div:nth-of-type(2) p {text-align: left;}
+
+@keyframes show {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.cardShow {
+    display: flex;
+    align-items: flex-start;
+    animation: show .6s ease-in-out;
+}
+
+.cardHide {display: none;}
+
+.qnIcon {
+    position: absolute;
+    left: 20px;
+}
+
+.checkBtn {
+    display: none !important;
+    color: var(--pColor);
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+    margin-right: .5rem;
+}
+
+.check {display: none;}
+
+@media screen and (max-width: 1600px) {
+
+    .item {font-size: 1.2rem;}
+
+    .cardPresentation, .cardDiv p {width: 320px;}
+
+    .titleImg {display: none;}
+
+    .main {justify-content: center;}
+}
+
+@media screen and (max-width: 1024px) {
+
+    .item, .button {font-size: 1.1rem;}
+
+    .title {font-size: 8rem;}
+
+    .articleTitle h2 {font-size: 1.85rem;}
+}
+
+@media screen and (max-width: 900px) {
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: max-content;
+    }
+
+    .checkBtn {
+        display: inline-flex !important;
+        position: fixed;
+        z-index: 2;
+    }
+
+    .navItems {
+        margin: 0;
+        top: 0;
+        display: flex;
+        position: fixed;
+        z-index: 1;
+        flex-direction: column;
+        width: 30%;
+        right: -30%;
+        background: var(--bgSColor);
+        justify-content: space-evenly;
+        align-items: center;
+        border-left: 0.05rem solid var(--bgColor);
+        filter: opacity(.95);
+        padding-top: 4rem;
+        overflow: scroll;
+        transition: right .4s;
+    }
+
+    .dataBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dataBox div {margin: 1rem;}
+
+    .articleTitle h2 {font-size: 1.5rem;}
+
+    .navItems::-webkit-scrollbar {display: none;}
+
+    .infContainer p {font-size: 1.1rem;}
+
+    .item {color: var(--pColor);}
+}
+
+@media screen and (max-width: 768px) {
+
+    .title {font-size: 6rem;}
+
+    .button {font-size: 1.1rem;}
+
+    .titleSection {font-size: 2.5rem;}
+
+    .articleTitle h2 {font-size: 1.4rem;}
+
+    .infContainer h2, .infContainer p {margin-bottom: 1rem;}
+
+    .navItems {
+        width: 50%;
+        right: -50%;
+    }
+
+    .infContainer, .workContainer {width: 80%;}
+
+    .works {gap: 2rem;}
+
+    .titleBox strong {font-size: 1.1rem;}
+}
+
+@media screen and (max-width: 480px) {
+    
+    .navItems {
+        width: 100%;
+        right: -100%;
+        border: none;
+    }
+
+    .cardPresentation, .cardDiv p {width: 280px;}
+
+    .infContainer img {display: none;}
+
+    .checkBtn {scale: 0.75;}
+
+    .title {font-size: 4.8rem;}
+
+    .titleSection {font-size: 2rem;}
+
+    .articleTitle h2 {font-size: 1.25rem;}
+
+    .cardPresentation p {font-size: 1.1rem;}
+    
+    .cardPresentation span {font-size: 1.85rem;}
+    
+    .message, .input {width: 275px;}
+
+    .btnScrollTop {padding: 15px 17px;}
+    
+    .nombreTecnica {font-size: 1.5rem;}
+
+    .subtitleSectBox strong {font-size: 1.2rem;}
+
+    .dataContact {font-size: .95rem;}
+}
